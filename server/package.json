@@ -8,7 +8,8 @@
     "build": "tsc",
     "backend": "tsc --watch & nodemon dist/index.js",
     "frontend": "npm run dev --prefix ../client",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "test": "jest --watchAll --runInBand"
   },
   "keywords": [],
   "author": "",
