@@ -6,7 +6,10 @@ const connectDB = async () => {
         console.log(`MongoDB connected successfully!`);
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
-        process.exit(1);
+        // Only exit if not in test environment
+        if (process.env.NODE_ENV !== 'test') {
+            process.exit(1);
+        }
     }
 };
 
