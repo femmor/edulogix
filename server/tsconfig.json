@@ -11,8 +11,8 @@
     "allowImportingTsExtensions": true,
     "declaration": true,
     "emitDeclarationOnly": true,
-    "types": ["jest", "node"],
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "types": ["jest", "node"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
