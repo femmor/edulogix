@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import connectDB from "../config/db";
+import logger from "../utils/logger";
 
 jest.mock("mongoose", () => ({
     connect: jest.fn(),
@@ -18,7 +19,7 @@ describe("connectDB", () => {
     });
 
     it("should connect to MongoDB and log success message", async () => {
-        const logSpy = jest.spyOn(console, "log").mockImplementation(() => { });
+        const logSpy = jest.spyOn(logger, "info").mockImplementation(error => error as never);
         (mongoose.connect as jest.Mock).mockResolvedValueOnce(undefined);
 
         await connectDB();
@@ -32,10 +33,9 @@ describe("connectDB", () => {
         const error = new Error("Connection failed");
         (mongoose.connect as jest.Mock).mockRejectedValueOnce(error);
 
-        const errorSpy = jest.spyOn(console, "error").mockImplementation(() => { });
+        const errorSpy = jest.spyOn(logger, "error").mockReturnValue(error.message as never);
         const exitSpy = jest.spyOn(process, "exit").mockImplementation(((code?: number) => { throw new Error(`process.exit: ${code}`); }) as never);
 
-        // Ensure NODE_ENV is not 'test' so process.exit(1) is called
         process.env.NODE_ENV = "development";
 
         await expect(connectDB()).rejects.toThrow("process.exit: 1");

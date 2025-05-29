@@ -143,3 +143,4 @@ dist
 
 .env
 feature-list.md
+logs/
