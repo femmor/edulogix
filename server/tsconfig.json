@@ -9,9 +9,9 @@
     "strict": true,
     "skipLibCheck": true,
     "allowImportingTsExtensions": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "forceConsistentCasingInFileNames": true
+    "noEmit": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": false
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
