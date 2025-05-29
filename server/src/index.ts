@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './config/db.ts';
-import logger from "./utils/logger";
+import logger from "./utils/logger.ts";
 
 dotenv.config();
 
