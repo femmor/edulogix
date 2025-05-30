@@ -4,11 +4,12 @@
   "description": "Backend server for EduLogix application",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "npm run build && node dist/index.js",
     "build": "tsc",
-    "backend": "tsc --watch & nodemon dist/index.js",
+    "backend": "nodemon",
     "frontend": "npm run dev --prefix ../client",
     "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "prod": "node dist/index.js",
     "test": "jest --watchAll --runInBand",
     "clean": "rm -rf dist && rm -rf build"
   },

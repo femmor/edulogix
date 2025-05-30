@@ -1,8 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import connectDB from './config/db.ts';
-import logger from "./utils/logger.ts";
+import connectDB from './config/db.js';
+import logger from "./utils/logger.js";
 
 dotenv.config();
 
