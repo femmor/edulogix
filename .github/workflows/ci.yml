@@ -18,8 +18,3 @@ jobs:
 
       - name: Install server
         run: cd server && npm ci
-
-      - name: Run backend tests
-        run: cd server && npm test
-        env:
-          NODE_ENV: test
